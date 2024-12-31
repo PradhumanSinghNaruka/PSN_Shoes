@@ -129,7 +129,8 @@ function Buy1() {
         name: data.name,
         number: data.number,
         address: data.address,
-        code: data.code
+        code: data.code,
+        size: data.size
     }
     try{
       await axios.post("https://getform.io/f/awnnonrb", userInfo);
@@ -216,6 +217,17 @@ function Buy1() {
                 {...register("code", { required: true })} />
               <br />
               {errors.code && <span className='text-sm text-red-500'>This field is required</span>}
+            </div>
+            <div className='mt-6 space-y-2'>
+              <span className="text-lg">Size</span>
+              <br />
+              <input type="number"
+                placeholder='Enter Size Eg:5,6,7,8,9' 
+                className='w-80 px-3 border rounded-md outline-none py-1'
+                name='size'
+                {...register("size", { required: true })} />
+              <br />
+              {errors.size && <span className='text-sm text-red-500'>This field is required</span>}
             </div>
             <button type='submit' className='btn mt-10 ml-6 bg-violet-800 text-white hover:bg-white hover:text-violet-800 duration-300'>Submit</button>
           </form>
